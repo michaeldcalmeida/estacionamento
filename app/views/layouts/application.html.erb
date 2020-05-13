@@ -6,10 +6,53 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application.js', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <div class="row">
+        <a href="/">
+          <%= image_tag 'https://ima.sp.gov.br/sites/www.ima.sp.gov.br/themes/ima2014/ima_logo_descricao.png', class: 'logo' %>
+        </a>
+
+        <div class="user_header">
+          <%= link_to "<i class='fas fa-user-circle'></i>".html_safe, funcionarios_path, :title => "Michael" %>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="btn-group">
+                <div class="btn-group">
+                  <button type="button" onclick="popup()" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cadastro
+                  </button>
+                  <div class="dropdown-menu">
+                    <%= link_to "Automóveis", carros_path, :class => "dropdown-item" %>
+                    <%= link_to "Funcionários", funcionarios_path, :class => "dropdown-item" %>
+                    <%= link_to "Vagas", vagas_path, :class => "dropdown-item" %>
+                    <%= link_to "Reservas", reservas_path, :class => "dropdown-item" %>
+                  </div>
+                </div>
+             <!-- Example single danger button -->
+                <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Action
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                  </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

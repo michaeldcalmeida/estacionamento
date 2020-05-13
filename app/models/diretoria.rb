@@ -1,2 +1,0 @@
-class Diretoria < ApplicationRecord
-end
